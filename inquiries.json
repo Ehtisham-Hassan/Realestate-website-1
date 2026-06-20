@@ -1,0 +1,35 @@
+[
+  {
+    "id": "inq-4v7omxers",
+    "propertyId": "lst-1",
+    "propertyTitle": "Sleek Contemporary Villa",
+    "clientName": "tahir shahbaz",
+    "clientEmail": "tahir@demo.com",
+    "clientPhone": "+923212285668",
+    "message": "Hi! I am extremely interested in \"Sleek Contemporary Villa\" listed at 3,450,000 located at 8842 Sunset Crest Dr, Beverly Hills. Can you details or scheduling a showing?",
+    "status": "New",
+    "createdAt": "2026-06-20T11:26:26.058Z"
+  },
+  {
+    "id": "inq-1",
+    "propertyId": "lst-1",
+    "propertyTitle": "Sleek Contemporary Villa",
+    "clientName": "Eleanor Vance",
+    "clientEmail": "eleanor.v@example.com",
+    "clientPhone": "+1 (310) 555-0198",
+    "message": "Hello, I am extremely interested in this estate. Can we schedule a private showing for next Tuesday?",
+    "status": "New",
+    "createdAt": "2026-06-20T10:01:47.175Z"
+  },
+  {
+    "id": "inq-2",
+    "propertyId": "lst-3",
+    "propertyTitle": "Sophisticated Midtown Penthouse",
+    "clientName": "David Harris",
+    "clientEmail": "david.harris@example.com",
+    "clientPhone": "+1 (212) 555-0322",
+    "message": "Does the penthouses HOA covers gas, water, and building amenities? Also, does the unit come with the custom artwork?",
+    "status": "Contacted",
+    "createdAt": "2026-06-20T10:01:47.175Z"
+  }
+]
