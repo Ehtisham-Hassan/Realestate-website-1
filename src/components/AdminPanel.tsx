@@ -313,17 +313,17 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
   };
 
   return (
-    <div className="w-full min-h-[85vh] bg-[#0A0A0A] rounded-xl overflow-hidden border border-[#1F1F1F] shadow-md flex flex-col md:flex-row">
+    <div className="w-full min-h-[85vh] bg-brand-white rounded-xl overflow-hidden border border-brand-border shadow-md flex flex-col md:flex-row">
       
       {/* Sidebar: controls login verification or tabs */}
-      <div className="w-full md:w-64 bg-[#0F0F0F] text-[#E0E0E0] flex flex-col p-6 shrink-0 border-r border-[#1F1F1F]">
+      <div className="w-full md:w-64 bg-brand-cream-alt text-brand-black flex flex-col p-6 shrink-0 border-r border-brand-border">
         <div className="flex items-center gap-3 mb-8">
-          <div className="p-2 bg-[#D4AF37]/15 border border-[#D4AF37]/35 rounded-sm text-[#D4AF37]">
+          <div className="p-2 bg-brand-cream border border-brand-border rounded-sm text-brand-black">
             <ShieldCheck className="w-6 h-6" />
           </div>
           <div>
-            <h2 className="font-serif italic font-bold text-sm tracking-widest text-[#D4AF37]">ADMIN ACCESS</h2>
-            <p className="text-[9px] text-[#888] font-mono">AUTHORIZED PORTAL</p>
+            <h2 className="font-serif font-bold text-sm tracking-widest text-brand-black">ADMIN ACCESS</h2>
+            <p className="text-[9px] text-brand-grey font-mono">AUTHORIZED PORTAL</p>
           </div>
         </div>
 
@@ -331,12 +331,12 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
           /* Logged In Sidebar Items */
           <div className="flex flex-col flex-grow justify-between gap-6">
             <div className="flex flex-col gap-2">
-              <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider mb-2">Navigation</span>
+              <span className="text-[10px] uppercase font-bold text-brand-grey tracking-wider mb-2">Navigation</span>
               
               <button
                 onClick={() => setActiveTab('listings')}
                 className={`flex items-center gap-2.5 px-4 py-3 rounded-xs text-xs uppercase tracking-widest font-bold transition-all duration-150 cursor-pointer ${
-                  activeTab === 'listings' ? 'bg-[#D4AF37] text-black shadow-sm' : 'text-[#888] hover:text-white hover:bg-white/5'
+                  activeTab === 'listings' ? 'bg-brand-black text-brand-white shadow-sm' : 'text-brand-grey hover:text-brand-black hover:bg-brand-white/50'
                 }`}
               >
                 <Building2 className="w-4.5 h-4.5" />
@@ -346,7 +346,7 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
               <button
                 onClick={() => setActiveTab('inquiries')}
                 className={`flex items-center justify-between px-4 py-3 rounded-xs text-xs uppercase tracking-widest font-bold transition-all duration-150 cursor-pointer ${
-                  activeTab === 'inquiries' ? 'bg-[#D4AF37] text-black shadow-sm' : 'text-[#888] hover:text-white hover:bg-white/5'
+                  activeTab === 'inquiries' ? 'bg-brand-black text-brand-white shadow-sm' : 'text-brand-grey hover:text-brand-black hover:bg-brand-white/50'
                 }`}
               >
                 <div id="inquiry-tab-selector" className="flex items-center gap-2.5">
@@ -361,16 +361,16 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
               </button>
             </div>
 
-            <div className="border-t border-[#1F1F1F] pt-6">
-              <div className="bg-[#111111] p-3.5 rounded-sm border border-[#1F1F1F] flex items-center justify-between mb-4">
-                <p className="text-[10px] text-[#888] font-mono uppercase">Status: Live Access</p>
+            <div className="border-t border-brand-border pt-6">
+              <div className="bg-brand-white p-3.5 rounded-sm border border-brand-border flex items-center justify-between mb-4">
+                <p className="text-[10px] text-brand-grey font-mono uppercase">Status: Live Access</p>
                 <span className="w-2 h-2 bg-emerald-500 rounded-full animate-ping" />
               </div>
 
               <button
                 onClick={handleLogout}
                 id="admin-logout-button"
-                className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-[#1A1A1A] hover:bg-rose-955 text-rose-400 hover:text-white rounded-sm text-xs font-bold uppercase tracking-widest border border-rose-950/40 transition-all duration-150 cursor-pointer"
+                className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-brand-white hover:bg-rose-50 text-rose-600 rounded-sm text-xs font-bold uppercase tracking-widest border border-brand-border transition-all duration-150 cursor-pointer"
               >
                 <LogOut className="w-4 h-4" />
                 Sign Out Panel
@@ -380,13 +380,13 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
         ) : (
           /* Logged Out Sidebar Info */
           <div className="flex flex-col justify-between flex-grow">
-            <p className="text-xs text-[#888] leading-relaxed">
+            <p className="text-xs text-brand-grey leading-relaxed">
               Verify the authorized passcode to unlock catalogs editing capabilities, register properties, adjust pricing tier statuses, or answer live luxury home search requests.
             </p>
-            <div className="mt-8 pt-4 border-t border-[#1F1F1F]">
+            <div className="mt-8 pt-4 border-t border-brand-border">
               <button
                 onClick={onClosePanel}
-                className="text-xs text-[#D4AF37] hover:text-[#C5A267] font-semibold flex items-center gap-1 cursor-pointer"
+                className="text-xs text-brand-black hover:text-brand-grey font-semibold flex items-center gap-1 cursor-pointer"
               >
                 ← Back to Homepage
               </button>
@@ -396,7 +396,7 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
       </div>
 
       {/* Main Panel Content */}
-      <div className="flex-grow p-6 sm:p-8 flex flex-col gap-6 overflow-hidden bg-[#0A0A0A] text-[#E0E0E0]">
+      <div className="flex-grow p-6 sm:p-8 flex flex-col gap-6 overflow-hidden bg-brand-white text-brand-black">
         
         {/* If NOT LOGGED IN, show Login Screen */}
         {!token ? (
@@ -404,21 +404,21 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="bg-[#0F0F0F] border border-[#1F1F1F] p-8 rounded-sm shadow-lg w-full flex flex-col"
+              className="bg-brand-cream border border-brand-border p-8 rounded-sm shadow-sm w-full flex flex-col"
             >
-              <div className="mx-auto bg-[#111] p-3.5 rounded-full text-[#D4AF37] mb-4 shadow-sm border border-[#1F1F1F]">
+              <div className="mx-auto bg-brand-white p-3.5 rounded-full text-brand-black mb-4 shadow-sm border border-brand-border">
                 <Lock className="w-8 h-8" />
               </div>
-              <h2 className="text-xl font-serif text-white text-center mb-1 italic font-bold">
+              <h2 className="text-xl font-serif text-brand-black text-center mb-1 font-bold">
                 Authorized Login Gate
               </h2>
-              <p className="text-[#888] text-xs text-center mb-6">
-                Enter your security administrative passcode. (Default: <code className="font-mono bg-[#0A0A0A] border border-[#1F1F1F] px-1 py-0.5 rounded text-[#D4AF37]">admin123</code>)
+              <p className="text-brand-grey text-xs text-center mb-6">
+                Enter your security administrative passcode. (Default: <code className="font-mono bg-brand-white border border-brand-border px-1 py-0.5 rounded text-brand-black">admin123</code>)
               </p>
 
               <form onSubmit={handleLogin} className="flex flex-col gap-4">
                 <div>
-                  <label className="text-[10px] font-bold text-[#888] uppercase tracking-wider block mb-1">
+                  <label className="text-[10px] font-bold text-brand-grey uppercase tracking-wider block mb-1">
                     Administrative Passcode
                   </label>
                   <input
@@ -427,13 +427,13 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
                     placeholder="••••••••••••"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full px-4 py-3 bg-[#0A0A0A] border border-[#1F1F1F] rounded-sm focus:border-[#D4AF37] focus:outline-hidden text-center text-lg font-mono tracking-widest text-white transition-all duration-150"
+                    className="w-full px-4 py-3 bg-brand-white border border-brand-border rounded-sm focus:border-brand-black focus:outline-none text-center text-lg font-mono tracking-widest text-brand-black transition-all duration-150"
                   />
                 </div>
 
                 {authError && (
-                  <div className="text-xs font-bold text-[#ff4f5a] bg-rose-955/20 p-2.5 rounded border border-rose-955/40 flex items-center gap-2">
-                    <AlertCircle className="w-4 h-4 text-rose-550 shrink-0" />
+                  <div className="text-xs font-bold text-rose-600 bg-rose-50 p-2.5 rounded border border-rose-200 flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
                     <span>{authError}</span>
                   </div>
                 )}
@@ -442,7 +442,7 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
                   type="submit"
                   disabled={authLoading}
                   id="admin-login-submit"
-                  className="w-full py-3 bg-[#D4AF37] hover:bg-[#C5A267] disabled:bg-[#333] text-black font-bold text-xs uppercase tracking-widest rounded-sm cursor-pointer shadow-sm transition-all duration-150"
+                  className="w-full py-3 bg-brand-black hover:bg-brand-grey disabled:bg-brand-border text-brand-white font-bold text-xs uppercase tracking-widest rounded-sm cursor-pointer shadow-sm transition-all duration-150"
                 >
                   {authLoading ? "Unlocking Portal..." : "Authorize Access"}
                 </button>
@@ -450,7 +450,7 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
 
               <button
                 onClick={onClosePanel}
-                className="mt-6 text-xs text-[#888] hover:text-white font-bold text-center underline cursor-pointer"
+                className="mt-6 text-xs text-brand-grey hover:text-brand-black font-bold text-center underline cursor-pointer"
               >
                 Cancel and return home
               </button>
@@ -461,12 +461,12 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
           <div className="flex flex-col gap-6 h-full overflow-hidden">
             
             {/* Top header stats bar */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-[#1F1F1F] pb-5">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-brand-border pb-5">
               <div>
-                <h1 className="text-2xl font-serif text-white italic font-bold">
+                <h1 className="text-2xl font-serif text-brand-black font-bold">
                   Dashboard Hub Console
                 </h1>
-                <p className="text-xs text-[#888] flex flex-wrap items-center gap-2">
+                <p className="text-xs text-brand-grey flex flex-wrap items-center gap-2">
                   <span>Authorized console</span>
                   <span>•</span>
                   <span>Manage {allListings.length} active listings</span>
@@ -474,7 +474,7 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
                   <button 
                     onClick={fetchAdminData} 
                     disabled={loadingData}
-                    className="text-[#D4AF37] hover:underline inline-flex items-center gap-1 cursor-pointer font-bold"
+                    className="text-brand-black hover:underline inline-flex items-center gap-1 cursor-pointer font-bold"
                   >
                     <RefreshCw className={`w-3 h-3 ${loadingData ? 'animate-spin' : ''}`} /> Sync Database
                   </button>
@@ -485,7 +485,7 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
                 <button
                   onClick={handleOpenAddMode}
                   id="admin-add-listing-button"
-                  className="px-5 py-2.5 bg-[#D4AF37] hover:bg-[#C5A267] text-black font-extrabold text-xs uppercase tracking-widest rounded-sm flex items-center gap-1.5 cursor-pointer shadow-sm transition-all"
+                  className="px-5 py-2.5 bg-brand-black hover:bg-brand-grey text-brand-white font-extrabold text-xs uppercase tracking-widest rounded-sm flex items-center gap-1.5 cursor-pointer shadow-sm transition-all"
                 >
                   <Plus className="w-4.5 h-4.5" />
                   Add New Listing
@@ -496,37 +496,37 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
             {/* Stats Cards Grid */}
             {stats && (
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="bg-[#0F0F0F] border border-[#1F1F1F] p-4 rounded-sm shadow-xs">
-                  <span className="text-[#888] text-[9px] font-bold uppercase tracking-widest block">Listings Portfolio</span>
+                <div className="bg-brand-cream-alt border border-brand-border p-4 rounded-sm shadow-sm">
+                  <span className="text-brand-grey text-[9px] font-bold uppercase tracking-widest block">Listings Portfolio</span>
                   <div className="flex items-center justify-between mt-1.5">
-                    <span className="text-xl font-serif font-black text-[#D4AF37] italic">{stats.totalListings}</span>
-                    <span className="text-xs font-semibold px-2 py-0.5 bg-[#1A1A1A] text-white border border-[#1F1F1F] rounded-sm">{stats.activeListings} Active</span>
+                    <span className="text-xl font-serif font-black text-brand-black">{stats.totalListings}</span>
+                    <span className="text-xs font-semibold px-2 py-0.5 bg-brand-white text-brand-black border border-brand-border rounded-sm">{stats.activeListings} Active</span>
                   </div>
                 </div>
 
-                <div className="bg-[#0F0F0F] border border-[#1F1F1F] p-4 rounded-sm shadow-xs">
-                  <span className="text-[#888] text-[9px] font-bold uppercase tracking-widest block">Total Portfolio Value</span>
+                <div className="bg-brand-cream-alt border border-brand-border p-4 rounded-sm shadow-sm">
+                  <span className="text-brand-grey text-[9px] font-bold uppercase tracking-widest block">Total Portfolio Value</span>
                   <div className="flex items-center justify-between mt-1.5">
-                    <span className="text-sm font-serif font-black text-white italic truncate" title={formatValue(stats.totalValue)}>
+                    <span className="text-sm font-serif font-black text-brand-black truncate" title={formatValue(stats.totalValue)}>
                       {formatValue(stats.totalValue)}
                     </span>
-                    <span className="text-[9px] font-bold px-1.5 py-0.5 bg-[#D4AF37]/15 text-[#D4AF37] rounded-sm uppercase">Est</span>
+                    <span className="text-[9px] font-bold px-1.5 py-0.5 bg-brand-border text-brand-black rounded-sm uppercase">Est</span>
                   </div>
                 </div>
 
-                <div className="bg-[#0F0F0F] border border-[#1F1F1F] p-4 rounded-sm shadow-xs">
-                  <span className="text-[#888] text-[9px] font-bold uppercase tracking-widest block">Status Distribution</span>
+                <div className="bg-brand-cream-alt border border-brand-border p-4 rounded-sm shadow-sm">
+                  <span className="text-brand-grey text-[9px] font-bold uppercase tracking-widest block">Status Distribution</span>
                   <div className="flex gap-1.5 mt-1.5">
-                    <span className="text-[9px] font-bold px-1.5 py-0.5 bg-amber-500/10 text-amber-400 border border-amber-500/25 rounded-md">{stats.pendingListings} Pend</span>
-                    <span className="text-[9px] font-bold px-1.5 py-0.5 bg-[#D4AF37]/15 text-[#D4AF37] border border-[#D4AF37]/25 rounded-md">{stats.soldListings} Sold</span>
+                    <span className="text-[9px] font-bold px-1.5 py-0.5 bg-amber-50 text-amber-600 border border-amber-200 rounded-md">{stats.pendingListings} Pend</span>
+                    <span className="text-[9px] font-bold px-1.5 py-0.5 bg-brand-white text-brand-black border border-brand-border rounded-md">{stats.soldListings} Sold</span>
                   </div>
                 </div>
 
-                <div className="bg-[#0F0F0F] border border-[#1F1F1F] p-4 rounded-sm shadow-xs">
-                  <span className="text-[#888] text-[9px] font-bold uppercase tracking-widest block">Total Inquiries</span>
+                <div className="bg-brand-cream-alt border border-brand-border p-4 rounded-sm shadow-sm">
+                  <span className="text-brand-grey text-[9px] font-bold uppercase tracking-widest block">Total Inquiries</span>
                   <div className="flex items-center justify-between mt-1.5">
-                    <span className="text-xl font-serif font-black text-[#D4AF37] italic">{stats.totalInquiries}</span>
-                    <span className="text-[9px] font-bold px-2 py-0.5 bg-[#D4AF37] text-black rounded-sm uppercase tracking-wide">{stats.newInquiries} Action</span>
+                    <span className="text-xl font-serif font-black text-brand-black">{stats.totalInquiries}</span>
+                    <span className="text-[9px] font-bold px-2 py-0.5 bg-brand-black text-brand-white rounded-sm uppercase tracking-wide">{stats.newInquiries} Action</span>
                   </div>
                 </div>
               </div>
@@ -535,19 +535,19 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
             {/* TAB CONTAINER VIEW */}
             {activeTab === 'listings' ? (
               /* TAB: MANAGE LISTINGS */
-              <div className="flex-grow flex flex-col min-h-0 bg-[#0F0F0F] border border-[#1F1F1F] rounded-sm overflow-hidden shadow-xs">
-                <div className="p-4 bg-[#111] border-b border-[#1F1F1F] flex items-center justify-between">
-                  <h3 className="font-bold text-[#E0E0E0] text-sm flex items-center gap-1.5 font-serif italic">
-                    <Building2 className="w-4 h-4 text-[#D4AF37]" />
+              <div className="flex-grow flex flex-col min-h-0 bg-brand-white border border-brand-border rounded-sm overflow-hidden shadow-sm">
+                <div className="p-4 bg-brand-cream border-b border-brand-border flex items-center justify-between">
+                  <h3 className="font-bold text-brand-black text-sm flex items-center gap-1.5 font-serif">
+                    <Building2 className="w-4 h-4 text-brand-black" />
                     Property Catalog Directory ({allListings.length})
                   </h3>
-                  <span className="text-[10px] font-mono text-[#888] uppercase tracking-widest">Live catalog</span>
+                  <span className="text-[10px] font-mono text-brand-grey uppercase tracking-widest">Live catalog</span>
                 </div>
 
                 <div className="flex-grow overflow-auto p-2">
                   <table className="w-full text-left text-sm border-collapse">
                     <thead>
-                      <tr className="text-[10px] uppercase tracking-widest text-[#888] font-bold border-b border-[#1F1F1F]">
+                      <tr className="text-[10px] uppercase tracking-widest text-brand-grey font-bold border-b border-brand-border">
                         <th className="p-3">Property Name</th>
                         <th className="p-3">Price Bracket</th>
                         <th className="p-3">Specs</th>
@@ -558,7 +558,7 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
                     </thead>
                     <tbody>
                       {allListings.map((p) => (
-                        <tr key={p.id} className="hover:bg-[#111111] border-b border-[#1F1F1F]/40 transition-colors duration-100 group">
+                        <tr key={p.id} className="hover:bg-brand-cream-alt border-b border-brand-border transition-colors duration-100 group">
                           
                           {/* Property Details Column */}
                           <td className="p-3">
@@ -567,11 +567,11 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
                                 src={p.imageUrl}
                                 alt={p.title}
                                 referrerPolicy="no-referrer"
-                                className="w-12 h-10 object-cover rounded-sm bg-[#0A0A0A] border border-[#1F1F1F] shrink-0"
+                                className="w-12 h-10 object-cover rounded-sm bg-brand-cream border border-brand-border shrink-0"
                               />
                               <div className="truncate max-w-[200px]">
-                                <h4 className="font-bold font-serif text-white group-hover:text-[#D4AF37] italic truncate">{p.title}</h4>
-                                <span className="text-[#888] text-[11px] flex items-center gap-1 truncate">
+                                <h4 className="font-bold font-serif text-brand-black group-hover:text-brand-grey truncate">{p.title}</h4>
+                                <span className="text-brand-grey text-[11px] flex items-center gap-1 truncate">
                                   <Clock className="w-3" /> {p.address}, {p.city}
                                 </span>
                               </div>
@@ -579,19 +579,19 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
                           </td>
 
                           {/* Price */}
-                          <td className="p-3 font-semibold text-white font-mono">
+                          <td className="p-3 font-semibold text-brand-black font-mono">
                             {formatValue(p.price)}
-                            {p.listingType === 'Rent' && <span className="text-[10px] text-[#555]">/mo</span>}
+                            {p.listingType === 'Rent' && <span className="text-[10px] text-brand-grey">/mo</span>}
                           </td>
 
                           {/* Specifics */}
-                          <td className="p-3 text-xs text-[#888] font-medium font-mono">
+                          <td className="p-3 text-xs text-brand-grey font-medium font-mono">
                             {p.bedrooms} Beds / {p.bathrooms} Baths • {p.areaSqFt.toLocaleString()} sqft
                           </td>
 
                           {/* Property Type Badge */}
                           <td className="p-3">
-                            <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-[#111] border border-[#1F1F1F] rounded-sm text-white">
+                            <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-brand-white border border-brand-border rounded-sm text-brand-black">
                               {p.propertyType}
                             </span>
                           </td>
@@ -599,8 +599,8 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
                           {/* Status Badge */}
                           <td className="p-3">
                             <span className={`text-[9px] font-bold px-2 py-0.5 rounded-sm inline-block border ${
-                              p.status === 'Active' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' :
-                              p.status === 'Pending' ? 'bg-amber-500/10 text-amber-400 border-amber-500/20' : 'bg-rose-500/10 text-rose-400 border-rose-500/20'
+                              p.status === 'Active' ? 'bg-emerald-50 text-emerald-600 border-emerald-200' :
+                              p.status === 'Pending' ? 'bg-amber-50 text-amber-600 border-amber-200' : 'bg-rose-50 text-rose-600 border-rose-200'
                             }`}>
                               {p.status}
                             </span>
@@ -612,7 +612,7 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
                               <button
                                 onClick={() => handleOpenEditMode(p)}
                                 id={`edit-button-${p.id}`}
-                                className="p-1.5 hover:bg-[#1A1A1A] border border-transparent hover:border-[#1F1F1F] rounded-xs text-[#888] hover:text-[#D4AF37] transition-all cursor-pointer"
+                                className="p-1.5 hover:bg-brand-white border border-transparent hover:border-brand-border rounded-xs text-brand-grey hover:text-brand-black transition-all cursor-pointer"
                                 title="Edit parameters"
                               >
                                 <Edit3 className="w-4 h-4" />
@@ -620,7 +620,7 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
                               <button
                                 onClick={() => handleDeleteListing(p.id, p.title)}
                                 id={`delete-button-${p.id}`}
-                                className="p-1.5 hover:bg-rose-955/20 border border-transparent hover:border-rose-950/45 rounded-xs text-[#555] hover:text-red-450 transition-all cursor-pointer"
+                                className="p-1.5 hover:bg-rose-50 border border-transparent hover:border-rose-200 rounded-xs text-brand-grey hover:text-rose-600 transition-all cursor-pointer"
                                 title="Delete permanently"
                               >
                                 <Trash2 className="w-4 h-4" />
@@ -633,7 +633,7 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
 
                       {allListings.length === 0 && (
                         <tr>
-                          <td colSpan={6} className="text-center py-12 text-[#888]">
+                          <td colSpan={6} className="text-center py-12 text-brand-grey">
                             No listings saved in catalog database yet. Click "Add New Listing" to get began.
                           </td>
                         </tr>
@@ -644,13 +644,13 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
               </div>
             ) : (
               /* TAB: MANAGE INQUIRIES */
-              <div className="flex-grow flex flex-col min-h-0 bg-[#0F0F0F] border border-[#1F1F1F] rounded-sm overflow-hidden shadow-xs">
-                <div className="p-4 bg-[#111] border-b border-[#1F1F1F] flex items-center justify-between">
-                  <h3 className="font-bold text-white text-sm flex items-center gap-1.5 font-serif italic">
-                    <Inbox className="w-4 h-4 text-[#D4AF37]" />
+              <div className="flex-grow flex flex-col min-h-0 bg-brand-white border border-brand-border rounded-sm overflow-hidden shadow-sm">
+                <div className="p-4 bg-brand-cream border-b border-brand-border flex items-center justify-between">
+                  <h3 className="font-bold text-brand-black text-sm flex items-center gap-1.5 font-serif">
+                    <Inbox className="w-4 h-4 text-brand-black" />
                     Inquiry Repository Desk ({inquiries.length})
                   </h3>
-                  <span className="text-[10px] font-mono text-[#888] uppercase tracking-widest">Interactive desk</span>
+                  <span className="text-[10px] font-mono text-brand-grey uppercase tracking-widest">Interactive desk</span>
                 </div>
 
                 <div className="flex-grow overflow-auto p-4 flex flex-col gap-4">
@@ -658,14 +658,14 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
                     <div 
                       key={inq.id}
                       className={`p-4 rounded-sm border transition-all duration-150 relative ${
-                        inq.status === 'New' ? 'bg-[#D4AF37]/5 border-[#D4AF37]/25' : 
-                        inq.status === 'Contacted' ? 'bg-[#111111] border-[#1F1F1F]' : 'bg-[#111111]/30 border-[#1F1F1F] opacity-50'
+                        inq.status === 'New' ? 'bg-brand-cream border-brand-black/20' : 
+                        inq.status === 'Contacted' ? 'bg-brand-white border-brand-border' : 'bg-brand-cream-alt border-brand-border opacity-50'
                       }`}
                     >
                       {/* Priority tag */}
                       {inq.status === 'New' && (
                         <div className="absolute top-4 right-4">
-                          <span className="px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider bg-red-650 text-white rounded-sm">
+                          <span className="px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider bg-rose-600 text-white rounded-sm">
                             New Input
                           </span>
                         </div>
@@ -674,36 +674,36 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
                       <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
                         {/* Seeker parameters (4 cols) */}
                         <div className="md:col-span-4 flex flex-col gap-1.5">
-                          <h4 className="font-bold text-white font-serif text-sm italic">
+                          <h4 className="font-bold text-brand-black font-serif text-sm">
                             {inq.clientName}
                           </h4>
-                          <p className="text-xs text-[#888] flex items-center gap-1.5">
-                            <Mail className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
-                            <a href={`mailto:${inq.clientEmail}`} className="hover:underline transition-colors duration-100 truncate hover:text-[#D4AF37]">
+                          <p className="text-xs text-brand-grey flex items-center gap-1.5">
+                            <Mail className="w-3.5 h-3.5 text-brand-black shrink-0" />
+                            <a href={`mailto:${inq.clientEmail}`} className="hover:underline transition-colors duration-100 truncate hover:text-brand-black">
                               {inq.clientEmail}
                             </a>
                           </p>
                           {inq.clientPhone && (
-                            <p className="text-xs text-[#888] flex items-center gap-1.5">
-                              <Phone className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
-                              <a href={`tel:${inq.clientPhone}`} className="hover:underline transition-colors duration-100 truncate hover:text-[#D4AF37]">
+                            <p className="text-xs text-brand-grey flex items-center gap-1.5">
+                              <Phone className="w-3.5 h-3.5 text-brand-black shrink-0" />
+                              <a href={`tel:${inq.clientPhone}`} className="hover:underline transition-colors duration-100 truncate hover:text-brand-black">
                                 {inq.clientPhone}
                               </a>
                             </p>
                           )}
-                          <p className="text-[10px] text-[#555] font-mono mt-1">
+                          <p className="text-[10px] text-brand-grey font-mono mt-1">
                             Submitted: {new Date(inq.createdAt).toLocaleDateString()} at {new Date(inq.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                           </p>
                         </div>
 
                         {/* Message / property link (5 cols) */}
                         <div className="md:col-span-5 flex flex-col gap-2">
-                          <div className="bg-[#0A0A0A] hover:bg-[#111111] px-3 py-1.5 rounded-sm border border-[#1F1F1F] inline-flex items-center gap-1 text-[10px] font-bold text-[#E0E0E0] w-fit">
-                            <Building2 className="w-3.5 h-3.5 text-[#D4AF37]" />
-                            Regarding: <span className="text-[#D4AF37] truncate max-w-[170px] font-serif italic">{inq.propertyTitle}</span>
+                          <div className="bg-brand-white hover:bg-brand-cream px-3 py-1.5 rounded-sm border border-brand-border inline-flex items-center gap-1 text-[10px] font-bold text-brand-black w-fit">
+                            <Building2 className="w-3.5 h-3.5 text-brand-black" />
+                            Regarding: <span className="text-brand-black truncate max-w-[170px] font-serif">{inq.propertyTitle}</span>
                           </div>
                           
-                          <blockquote className="text-xs text-[#888] bg-[#0A0A0A] p-2.5 rounded-sm border border-[#1F1F1F]/60 italic leading-relaxed">
+                          <blockquote className="text-xs text-brand-grey bg-brand-white p-2.5 rounded-sm border border-brand-border/60 italic leading-relaxed">
                             "{inq.message}"
                           </blockquote>
                         </div>
@@ -711,24 +711,24 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
                         {/* Status modifiers (3 cols) */}
                         <div className="md:col-span-3 flex flex-col md:items-end justify-between gap-3">
                           <div className="flex flex-col gap-1 w-full md:items-end font-mono">
-                            <label className="text-[10px] font-bold text-[#555] uppercase tracking-widest block">Pipeline Status</label>
+                            <label className="text-[10px] font-bold text-brand-grey uppercase tracking-widest block">Pipeline Status</label>
                             <select
                               value={inq.status}
                               onChange={(e) => handleUpdateInquiryStatus(inq.id, e.target.value as Inquiry['status'])}
-                              className={`text-xs font-bold rounded-sm px-2 w-full max-w-[120px] py-1 bg-[#0A0A0A] border focus:outline-hidden transition-all duration-100 ${
-                                inq.status === 'New' ? 'border-[#D4AF37]/50 text-[#D4AF37]' :
-                                inq.status === 'Contacted' ? 'border-sky-500/40 text-sky-400' : 'border-[#1F1F1F] text-[#555]'
+                              className={`text-xs font-bold rounded-sm px-2 w-full max-w-[120px] py-1 bg-brand-white border focus:outline-none transition-all duration-100 ${
+                                inq.status === 'New' ? 'border-brand-black/50 text-brand-black' :
+                                inq.status === 'Contacted' ? 'border-sky-500/40 text-sky-600' : 'border-brand-border text-brand-grey'
                               }`}
                             >
-                              <option value="New" className="bg-[#0A0A0A] text-[#D4AF37]">New</option>
-                              <option value="Contacted" className="bg-[#0A0A0A] text-sky-400">Contacted</option>
-                              <option value="Archived" className="bg-[#0A0A0A] text-[#555]">Archived</option>
+                              <option value="New" className="bg-brand-white text-brand-black">New</option>
+                              <option value="Contacted" className="bg-brand-white text-sky-600">Contacted</option>
+                              <option value="Archived" className="bg-brand-white text-brand-grey">Archived</option>
                             </select>
                           </div>
 
                           <a
                             href={`mailto:${inq.clientEmail}?subject=Regarding your inquiry on ${encodeURIComponent(inq.propertyTitle)}`}
-                            className="text-xs font-bold text-[#D4AF37] hover:text-white flex items-center gap-1 hover:underline transition-colors"
+                            className="text-xs font-bold text-brand-black hover:text-brand-grey flex items-center gap-1 hover:underline transition-colors"
                             target="_blank"
                             rel="noreferrer"
                           >
@@ -741,7 +741,7 @@ export default function AdminPanel({ onListingChange, allListings, onClosePanel 
                   ))}
 
                   {inquiries.length === 0 && (
-                    <div className="text-center py-12 text-[#888]">
+                    <div className="text-center py-12 text-brand-grey">
                       No customer inquiries have been submitted yet. When clients fill the real estate details modal form, they appear here.
                     </div>
                   )}

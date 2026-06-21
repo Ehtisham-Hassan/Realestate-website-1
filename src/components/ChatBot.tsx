@@ -110,7 +110,7 @@ export default function ChatBot({ listings, onViewDetails }: ChatBotProps) {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-40 bg-[#D4AF37] hover:bg-[#C5A267] text-black p-4 rounded-full shadow-lg shadow-[#D4AF37]/20 transition-colors cursor-pointer border border-[#D4AF37]"
+        className="fixed bottom-6 right-6 z-40 bg-brand-black hover:bg-brand-grey text-brand-white p-4 rounded-full shadow-lg shadow-brand-black/20 transition-colors cursor-pointer border border-brand-black"
       >
         <MessageSquare className="w-6 h-6" />
       </motion.button>
@@ -123,31 +123,35 @@ export default function ChatBot({ listings, onViewDetails }: ChatBotProps) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-6 right-6 z-50 w-full max-w-[380px] h-[600px] max-h-[80vh] bg-[#0F0F0F] border border-[#1F1F1F] rounded-2xl shadow-2xl flex flex-col overflow-hidden"
+            className="fixed bottom-6 right-6 z-50 w-full max-w-[380px] h-[600px] max-h-[80vh] bg-brand-cream-alt border border-brand-border rounded-2xl shadow-2xl flex flex-col overflow-hidden text-brand-black"
           >
             {/* Header */}
-            <div className="bg-[#111111] border-b border-[#1F1F1F] p-4 flex items-center justify-between">
+            <div className="bg-brand-white border-b border-brand-border p-4 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="bg-[#D4AF37]/20 p-2 rounded-lg">
-                  <Bot className="w-5 h-5 text-[#D4AF37]" />
+                <div className="w-8 h-8 rounded-lg overflow-hidden border border-brand-border bg-brand-cream flex-shrink-0">
+                  <img 
+                    src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=150&q=80" 
+                    alt="Chatbot Avatar" 
+                    className="w-full h-full object-cover grayscale opacity-90" 
+                  />
                 </div>
                 <div>
-                  <h3 className="font-serif italic text-white text-sm font-bold">Vantage Assistant</h3>
-                  <span className="text-[10px] text-emerald-400 font-bold uppercase tracking-widest flex items-center gap-1">
+                  <h3 className="font-serif text-brand-black text-sm font-bold">Vantage Assistant</h3>
+                  <span className="text-[10px] text-emerald-600 font-bold uppercase tracking-widest flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 block"></span> Online
                   </span>
                 </div>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="text-[#888] hover:text-white transition-colors cursor-pointer p-1"
+                className="text-brand-grey hover:text-brand-black transition-colors cursor-pointer p-1"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             {/* Message History */}
-            <div className="flex-grow p-4 overflow-y-auto flex flex-col gap-4 bg-[#0A0A0A]">
+            <div className="flex-grow p-4 overflow-y-auto flex flex-col gap-4 bg-brand-cream-alt">
               {messages.map((msg) => (
                 <div
                   key={msg.id}
@@ -158,8 +162,8 @@ export default function ChatBot({ listings, onViewDetails }: ChatBotProps) {
                   <div
                     className={`p-3 rounded-2xl text-sm ${
                       msg.sender === "user"
-                        ? "bg-[#D4AF37] text-black rounded-br-sm"
-                        : "bg-[#1F1F1F] text-[#E0E0E0] border border-[#333] rounded-bl-sm"
+                        ? "bg-brand-black text-brand-white rounded-br-sm"
+                        : "bg-brand-white text-brand-black border border-brand-border rounded-bl-sm shadow-sm"
                     }`}
                   >
                     <p className="whitespace-pre-line leading-relaxed">{msg.text}</p>
@@ -169,8 +173,8 @@ export default function ChatBot({ listings, onViewDetails }: ChatBotProps) {
               ))}
               
               {isLoading && (
-                <div className="self-start max-w-[80%] flex items-center gap-2 text-[#888] text-xs">
-                  <Loader2 className="w-4 h-4 animate-spin text-[#D4AF37]" />
+                <div className="self-start max-w-[80%] flex items-center gap-2 text-brand-grey text-xs">
+                  <Loader2 className="w-4 h-4 animate-spin text-brand-black" />
                   <span>Assistant is typing...</span>
                 </div>
               )}
@@ -180,20 +184,20 @@ export default function ChatBot({ listings, onViewDetails }: ChatBotProps) {
             {/* Input Area */}
             <form
               onSubmit={handleSendMessage}
-              className="bg-[#111111] border-t border-[#1F1F1F] p-3 flex items-center gap-2"
+              className="bg-brand-white border-t border-brand-border p-3 flex items-center gap-2"
             >
               <input
                 type="text"
                 placeholder="Ask about properties..."
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                className="flex-grow bg-[#0A0A0A] text-sm text-white placeholder-[#555] border border-[#1F1F1F] rounded-full px-4 py-2.5 focus:outline-hidden focus:border-[#D4AF37] transition-colors"
+                className="flex-grow bg-brand-cream-alt text-sm text-brand-black placeholder-brand-grey border border-brand-border rounded-full px-4 py-2.5 focus:outline-none focus:border-brand-black transition-colors"
                 disabled={isLoading}
               />
               <button
                 type="submit"
                 disabled={!inputValue.trim() || isLoading}
-                className="bg-[#D4AF37] hover:bg-[#C5A267] disabled:bg-[#333] disabled:text-[#555] text-black p-2.5 rounded-full transition-colors cursor-pointer flex-shrink-0"
+                className="bg-brand-black hover:bg-brand-grey disabled:bg-brand-border disabled:text-brand-grey text-brand-white p-2.5 rounded-full transition-colors cursor-pointer flex-shrink-0"
               >
                 <Send className="w-4 h-4" />
               </button>

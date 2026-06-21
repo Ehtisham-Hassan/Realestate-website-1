@@ -42,10 +42,10 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, onViewDetails }) 
       whileHover={{ y: -6 }}
       transition={{ duration: 0.25 }}
       id={`property-card-${property.id}`}
-      className="bg-[#111111] rounded-xl overflow-hidden border border-[#1F1F1F] hover:border-[#D4AF37]/55 shadow-xs transition-all duration-300 flex flex-col h-full group"
+      className="bg-brand-white rounded-xl overflow-hidden border border-brand-border hover:border-brand-grey shadow-sm transition-all duration-300 flex flex-col h-full group"
     >
       {/* Property Image & Badges */}
-      <div className="relative aspect-[3/2] overflow-hidden bg-[#0A0A0A]">
+      <div className="relative aspect-[3/2] overflow-hidden bg-brand-cream-alt">
         <img
           src={property.imageUrl || "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=85"}
           alt={property.title}
@@ -55,28 +55,28 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, onViewDetails }) 
         
         {/* Listing Type Tag (Rent vs Sale) */}
         <div className="absolute top-4 left-4 z-10">
-          <span className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider bg-[#0A0A0A]/95 text-[#D4AF37] border border-[#D4AF37]/35 rounded-sm shadow-sm backdrop-blur-xs">
+          <span className="px-3 py-1 text-[10px] font-bold uppercase tracking-wider bg-brand-white/95 text-brand-black border border-brand-border rounded-sm shadow-sm backdrop-blur-xs">
             For {property.listingType}
           </span>
         </div>
 
         {/* Status Tag */}
         <div className="absolute top-4 right-4 z-10">
-          <span className={`px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider rounded-sm shadow-sm border border-white/10 ${getStatusColor(property.status)}`}>
+          <span className={`px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider rounded-sm shadow-sm border border-white/20 ${getStatusColor(property.status)}`}>
             {property.status}
           </span>
         </div>
 
         {/* Price Tag Overlay */}
         <div className="absolute bottom-4 left-4 z-10">
-          <div className="px-3.5 py-1.5 bg-[#0A0A0A]/90 text-[#D4AF37] text-lg font-serif font-bold rounded-sm backdrop-blur-xs shadow-md border border-[#1F1F1F]">
+          <div className="px-3.5 py-1.5 bg-brand-white/95 text-brand-black text-lg font-serif font-bold rounded-sm backdrop-blur-xs shadow-md border border-brand-border">
             {formatPrice(property.price, property.listingType)}
           </div>
         </div>
 
         {property.featured && (
           <div className="absolute bottom-4 right-4 z-10">
-            <span className="px-2.5 py-1 text-[9px] font-serif font-bold uppercase tracking-widest bg-[#D4AF37] text-black rounded-sm shadow-sm">
+            <span className="px-2.5 py-1 text-[9px] font-serif font-bold uppercase tracking-widest bg-brand-black text-brand-white rounded-sm shadow-sm">
               ★ Premium
             </span>
           </div>
@@ -86,41 +86,41 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, onViewDetails }) 
       {/* Property Content */}
       <div className="p-5 flex flex-col flex-grow">
         <div className="mb-2">
-          <span className="text-[10px] uppercase tracking-widest font-bold text-[#888]">
+          <span className="text-[10px] uppercase tracking-widest font-bold text-brand-grey">
             {property.propertyType}
           </span>
         </div>
         
-        <h3 className="text-lg font-serif text-white italic group-hover:text-[#D4AF37] transition-colors duration-200 line-clamp-1 mb-2">
+        <h3 className="text-lg font-serif text-brand-black group-hover:text-brand-grey transition-colors duration-200 line-clamp-1 mb-2">
           {property.title}
         </h3>
 
-        <div className="flex items-center text-[#888] text-sm mb-4">
-          <MapPin className="w-4 h-4 mr-1 shrink-0 text-[#D4AF37]" />
+        <div className="flex items-center text-brand-grey text-sm mb-4">
+          <MapPin className="w-4 h-4 mr-1 shrink-0 text-brand-black" />
           <span className="truncate">{property.address}, {property.city}, {property.state}</span>
         </div>
 
-        <div className="mt-auto border-t border-[#1F1F1F] pt-4 flex items-center justify-between text-[#888] text-sm">
+        <div className="mt-auto border-t border-brand-border pt-4 flex items-center justify-between text-brand-grey text-sm">
           <div className="flex items-center" title="Bedrooms">
-            <BedDouble className="w-4 h-4 mr-1.5 text-[#D4AF37]" />
-            <span className="font-medium text-white">{property.bedrooms} <span className="text-[#555] text-xs">Beds</span></span>
+            <BedDouble className="w-4 h-4 mr-1.5 text-brand-black" />
+            <span className="font-medium text-brand-black">{property.bedrooms} <span className="text-brand-grey text-xs">Beds</span></span>
           </div>
           
           <div className="flex items-center" title="Bathrooms">
-            <Bath className="w-4 h-4 mr-1.5 text-[#D4AF37]" />
-            <span className="font-medium text-white">{property.bathrooms} <span className="text-[#555] text-xs">Baths</span></span>
+            <Bath className="w-4 h-4 mr-1.5 text-brand-black" />
+            <span className="font-medium text-brand-black">{property.bathrooms} <span className="text-brand-grey text-xs">Baths</span></span>
           </div>
 
           <div className="flex items-center" title="Area SqFt">
-            <Maximize2 className="w-4 h-4 mr-1.5 text-[#D4AF37]" />
-            <span className="font-medium text-white">{property.areaSqFt.toLocaleString()} <span className="text-[#555] text-xs">sqft</span></span>
+            <Maximize2 className="w-4 h-4 mr-1.5 text-brand-black" />
+            <span className="font-medium text-brand-black">{property.areaSqFt.toLocaleString()} <span className="text-brand-grey text-xs">sqft</span></span>
           </div>
         </div>
 
         <button
           onClick={() => onViewDetails(property)}
           id={`view-details-${property.id}`}
-          className="mt-4 w-full py-2.5 bg-[#1A1A1A] text-[#D4AF37] text-xs font-bold uppercase tracking-widest rounded-sm border border-[#1F1F1F] hover:bg-[#D4AF37] hover:text-black transition-all duration-200 cursor-pointer text-center"
+          className="mt-4 w-full py-2.5 bg-brand-cream text-brand-black text-xs font-bold uppercase tracking-widest rounded-sm border border-brand-border hover:bg-brand-black hover:text-brand-white transition-all duration-200 cursor-pointer text-center"
         >
           View Listing Details
         </button>

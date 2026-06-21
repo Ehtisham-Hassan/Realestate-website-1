@@ -1,10 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Outfit', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  
+  --color-brand-cream: #FAFAFA;
+  --color-brand-cream-alt: #F5F5F0;
+  --color-brand-white: #FFFFFF;
+  --color-brand-black: #111111;
+  --color-brand-grey: #4A4A4A;
+  --color-brand-border: #E5E5E5;
 }
 
 /* Custom styles for animations & scrollbars */
@@ -14,21 +19,21 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0f0f0f;
+  background: var(--color-brand-cream);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1f1f1f;
+  background: var(--color-brand-border);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #333333;
+  background: var(--color-brand-grey);
 }
 
 /* Base resets or bespoke styles */
 body {
   font-family: var(--font-sans);
-  background-color: #0A0A0A;
-  color: #E0E0E0;
+  background-color: var(--color-brand-cream);
+  color: var(--color-brand-black);
 }
