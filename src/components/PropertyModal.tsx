@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Listing } from "../types";
 import { 
-  X, BedDouble, Bath, Maximize2, MapPin, 
+  X, MapPin, 
   Calendar, Check, User, Mail, Phone, MessageSquare, 
   Sparkles, CheckCircle2, Building2
 } from "lucide-react";
@@ -166,23 +166,20 @@ export default function PropertyModal({ property, onClose }: PropertyModalProps)
                     </span>
                   </div>
                   
-                  <div className="flex items-center gap-5 text-brand-black">
-                    <div className="text-center">
-                      <BedDouble className="w-5 h-5 mx-auto text-brand-black mb-0.5" />
-                      <span className="text-sm font-bold text-brand-black">{property.bedrooms}</span>
-                      <span className="text-brand-grey text-[10px] block">Beds</span>
+                  <div className="flex items-center gap-5 text-brand-black text-[10px] uppercase tracking-widest font-bold">
+                    <div className="text-center w-full">
+                      <span className="text-lg font-serif block text-brand-black">{property.bedrooms}</span>
+                      <span className="text-brand-grey block">Beds</span>
                     </div>
                     <div className="h-8 w-px bg-brand-border" />
-                    <div className="text-center">
-                      <Bath className="w-5 h-5 mx-auto text-brand-black mb-0.5" />
-                      <span className="text-sm font-bold text-brand-black">{property.bathrooms}</span>
-                      <span className="text-brand-grey text-[10px] block">Baths</span>
+                    <div className="text-center w-full">
+                      <span className="text-lg font-serif block text-brand-black">{property.bathrooms}</span>
+                      <span className="text-brand-grey block">Baths</span>
                     </div>
                     <div className="h-8 w-px bg-brand-border" />
-                    <div className="text-center">
-                      <Maximize2 className="w-5 h-5 mx-auto text-brand-black mb-0.5" />
-                      <span className="text-sm font-bold text-brand-black">{property.areaSqFt.toLocaleString()}</span>
-                      <span className="text-brand-grey text-[10px] block">SqFT</span>
+                    <div className="text-center w-full">
+                      <span className="text-lg font-serif block text-brand-black">{property.areaSqFt.toLocaleString()}</span>
+                      <span className="text-brand-grey block">SqFT</span>
                     </div>
                   </div>
                 </div>

@@ -1,5 +1,5 @@
 import { Listing } from "../types";
-import { BedDouble, Bath, Maximize2, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { motion } from "motion/react";
 import React from "react";
 
@@ -100,20 +100,20 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property, onViewDetails }) 
           <span className="truncate">{property.address}, {property.city}, {property.state}</span>
         </div>
 
-        <div className="mt-auto border-t border-brand-border pt-4 flex items-center justify-between text-brand-grey text-sm">
-          <div className="flex items-center" title="Bedrooms">
-            <BedDouble className="w-4 h-4 mr-1.5 text-brand-black" />
-            <span className="font-medium text-brand-black">{property.bedrooms} <span className="text-brand-grey text-xs">Beds</span></span>
+        <div className="mt-auto border-t border-brand-border pt-4 flex items-center justify-between text-brand-black text-[10px] font-bold uppercase tracking-widest">
+          <div className="text-center w-full">
+            <span className="block text-sm font-serif">{property.bedrooms}</span>
+            <span className="text-brand-grey">Beds</span>
           </div>
-          
-          <div className="flex items-center" title="Bathrooms">
-            <Bath className="w-4 h-4 mr-1.5 text-brand-black" />
-            <span className="font-medium text-brand-black">{property.bathrooms} <span className="text-brand-grey text-xs">Baths</span></span>
+          <div className="h-6 w-px bg-brand-border" />
+          <div className="text-center w-full">
+            <span className="block text-sm font-serif">{property.bathrooms}</span>
+            <span className="text-brand-grey">Baths</span>
           </div>
-
-          <div className="flex items-center" title="Area SqFt">
-            <Maximize2 className="w-4 h-4 mr-1.5 text-brand-black" />
-            <span className="font-medium text-brand-black">{property.areaSqFt.toLocaleString()} <span className="text-brand-grey text-xs">sqft</span></span>
+          <div className="h-6 w-px bg-brand-border" />
+          <div className="text-center w-full">
+            <span className="block text-sm font-serif">{property.areaSqFt.toLocaleString()}</span>
+            <span className="text-brand-grey">SqFt</span>
           </div>
         </div>
 
