@@ -199,45 +199,63 @@ export default function App() {
           /* ======================================================== */
           <div className="flex flex-col gap-8 flex-grow">
             
-            {/* HERO HERO SECTION BANNER */}
+            {/* HERO SECTION BANNER */}
             <section className="relative overflow-hidden bg-[#111111] text-[#E0E0E0] rounded-2xl p-6 sm:p-12 mb-2 shadow-sm border border-[#1F1F1F]">
               {/* Backlight effect */}
               <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#D4AF37]/5 rounded-full blur-3xl -z-10" />
               <div className="absolute -bottom-10 -left-10 w-[200px] h-[200px] bg-[#D4AF37]/5 rounded-full blur-2xl -z-10" />
 
-              <div className="max-w-2xl relative">
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#1A1A1A] border border-[#D4AF37]/30 text-[#D4AF37] text-[10px] font-bold uppercase tracking-widest rounded mb-4">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  Your Dream Address Awaits
-                </div>
-                
-                <h2 className="text-3xl sm:text-5xl font-serif text-white italic tracking-tight mb-4 leading-tight">
-                  Discover the Place You'll Love to Call Home
-                </h2>
-                
-                <p className="text-[#888] text-sm sm:text-base leading-relaxed mb-6">
-                  Browse real, agent-verified property listings, customize advanced filters, and submit secure inquiries directly to our administrative desk.
-                </p>
+              <div className="flex flex-col md:flex-row items-center gap-8 relative">
+                <div className="flex-1 max-w-2xl relative">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#1A1A1A] border border-[#D4AF37]/30 text-[#D4AF37] text-[10px] font-bold uppercase tracking-widest rounded mb-4">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    Your Dream Address Awaits
+                  </div>
+                  
+                  <h2 className="text-3xl sm:text-5xl font-serif text-white italic tracking-tight mb-4 leading-tight">
+                    Discover the Place You'll Love to Call Home
+                  </h2>
+                  
+                  <p className="text-[#888] text-sm sm:text-base leading-relaxed mb-6">
+                    Browse real, agent-verified property listings, customize advanced filters, and submit secure inquiries directly to our administrative desk.
+                  </p>
 
-                {/* Integrated search line */}
-                <div className="flex flex-col sm:flex-row items-stretch gap-2 bg-[#0A0A0A] p-2.5 rounded-lg border border-[#1F1F1F] w-full">
-                  <div className="relative flex-grow">
-                    <Search className="absolute left-3.5 top-3 w-5 h-5 text-[#888]" />
-                    <input
-                      type="text"
-                      placeholder="Search by city, state, or address..."
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      className="w-full bg-transparent pl-11 pr-4 py-2.5 text-white placeholder-[#555] focus:outline-hidden text-sm"
+                  {/* Integrated search line */}
+                  <div className="flex flex-col sm:flex-row items-stretch gap-2 bg-[#0A0A0A] p-2.5 rounded-lg border border-[#1F1F1F] w-full">
+                    <div className="relative flex-grow">
+                      <Search className="absolute left-3.5 top-3 w-5 h-5 text-[#888]" />
+                      <input
+                        type="text"
+                        placeholder="Search by city, state, or address..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        className="w-full bg-transparent pl-11 pr-4 py-2.5 text-white placeholder-[#555] focus:outline-hidden text-sm"
+                      />
+                    </div>
+                    <button
+                      onClick={() => setShowFilters(!showFilters)}
+                      className="px-4 py-2.5 bg-[#1F1F1F] hover:bg-[#2A2A2A] text-white font-semibold text-xs rounded border border-[#333] flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
+                    >
+                      <SlidersHorizontal className="w-4 h-4 text-[#D4AF37]" />
+                      {showFilters ? "Hide" : "Advanced"} Filters
+                    </button>
+                  </div>
+                </div>
+
+                {/* Realtor Agent Profile */}
+                <div className="hidden md:flex flex-col items-center flex-shrink-0">
+                  <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-[#1F1F1F] shadow-xl mb-4 relative group">
+                    <div className="absolute inset-0 bg-[#D4AF37]/20 group-hover:bg-transparent transition-colors z-10" />
+                    <img 
+                      src="https://images.unsplash.com/photo-1627161683077-e34782c24d81?q=80&w=703&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                      alt="Clay Elliot" 
+                      className="w-full h-full object-cover"
                     />
                   </div>
-                  <button
-                    onClick={() => setShowFilters(!showFilters)}
-                    className="px-4 py-2.5 bg-[#1F1F1F] hover:bg-[#2A2A2A] text-white font-semibold text-xs rounded border border-[#333] flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
-                  >
-                    <SlidersHorizontal className="w-4 h-4 text-[#D4AF37]" />
-                    {showFilters ? "Hide" : "Advanced"} Filters
-                  </button>
+                  <div className="text-center">
+                    <h3 className="text-xl font-serif text-white italic tracking-tight">Clay Elliot</h3>
+                    <p className="text-[10px] text-[#D4AF37] uppercase tracking-widest font-bold">Top Realtor</p>
+                  </div>
                 </div>
               </div>
             </section>
