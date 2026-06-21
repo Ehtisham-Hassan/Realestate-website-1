@@ -294,9 +294,9 @@ app.post("/api/chat", async (req, res) => {
     const result = await pool.query("SELECT id, title, price, city, property_type, listing_type, bedrooms, bathrooms FROM listings WHERE status = 'Active'");
     const catalogSnippet = result.rows.map(mapListingRow);
     
-    const systemPrompt = \`You are a helpful and professional real estate assistant for Vantage Real Estate.
+    const systemPrompt = `You are a helpful and professional real estate assistant for Vantage Real Estate.
 Here is the current catalog of active properties:
-\${JSON.stringify(catalogSnippet)}
+${JSON.stringify(catalogSnippet)}
 
 Respond to the user's query thoughtfully. If the user asks for properties, or if recommending specific properties is relevant to their question, include their listing IDs in the 'listingIds' array.
 Output your response STRICTLY as a raw JSON object with the following schema:
@@ -304,15 +304,15 @@ Output your response STRICTLY as a raw JSON object with the following schema:
   "reply": "Your textual response here. Keep it concise, helpful, and friendly. Do not use markdown.",
   "listingIds": ["id1", "id2"] // Array of property IDs you want to show the user. Empty array if none.
 }
-Do NOT wrap the JSON in markdown blocks (e.g., no \`\`\`json). Just return the raw JSON object.\`;
+Do NOT wrap the JSON in markdown blocks (e.g., no \`\`\`json). Just return the raw JSON object.`;
 
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash",
-      contents: \`\${systemPrompt}\n\nUser: \${message}\`,
+      contents: `${systemPrompt}\n\nUser: ${message}`,
     });
 
     const text = response.text || "{}";
-    const cleanedText = text.replace(/\`\`\`json/gi, "").replace(/\`\`\`/g, "").trim();
+    const cleanedText = text.replace(/```json/gi, "").replace(/```/g, "").trim();
     
     let aiResult;
     try {
@@ -351,7 +351,7 @@ if (process.env.NODE_ENV !== "production" || !process.env.VERCEL) {
     }
 
     app.listen(PORT, () => {
-      console.log(\`Server running on port \${PORT} in \${process.env.NODE_ENV || "development"} mode\`);
+      console.log(`Server running on port ${PORT} in ${process.env.NODE_ENV || "development"} mode`);
     });
   }
   startServer();
